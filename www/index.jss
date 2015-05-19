@@ -1,8 +1,13 @@
 {% extends 'template.swig' %}
 
+{%- block css %}
+{% parent %}
+<link rel="stylesheet" type="text/css" href="/index.css">
+{%- endblock %}
+
 {% block content %}
-<article>
-<h3>{{owner}}'s personal netdisk here!</h3>
+<article class="index">
+<h3>{{owner}}'s Private Cloud Storage Here!</h3>
 <span>You can: </span>
 <ul>
 <li><a href="/dir/">   Browse Public Files</a></li>

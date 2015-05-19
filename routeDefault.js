@@ -8,6 +8,10 @@ var staticFileOpts = {
     maxAge: 1000*60*10
 };
 
+if (conf.cache===false) {
+    staticFileOpts.maxAge = 0;
+}
+
 module.exports = function(req, res, next) {
     var path = req.path; 
     if (path=="/") path="/index.jss";

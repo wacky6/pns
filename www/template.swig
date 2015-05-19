@@ -4,9 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no">
   <title>{{owner}} @ Remote File Access</title>
-  <link rel="stylesheet" href="/base.css">
-  {% block css %}
-  {% endblock %}
+  {%- block css %}
+  <link rel="stylesheet" type="text/css" href="/base.css">
+  {%- endblock %}
+  {%- block script %}
+  {%- endblock %}
 </head>
 <body>
 <header>

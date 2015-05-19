@@ -1,0 +1,41 @@
+/**** Generated Style 
+ *  src: http://www.csstablegenerator.com/
+ **/
+table {
+	box-shadow: 0.8rem 0.8rem 0.4rem #a1a1a1;
+	border:1px solid #ffffff;
+    border-collapse: collapse;
+        border-spacing: 0;
+    width: 100%;
+}
+table tr:hover td{
+	background-color: #fffee3;
+}
+table tr:nth-child(odd)     { background-color:#f0f5ff; }
+table tr:nth-child(even)    { background-color:#d7e0f5; }
+table td{
+	vertical-align:middle;	
+	border:1px solid #ffffff;
+	border-width:0 1px 1px 0;
+	text-align:left;
+    padding: 0.25rem;
+	font-family:Courier;
+	font-weight:normal;
+	color:#000000;
+}
+
+table tr th{
+	background-color:#1c516c;
+	text-align:center;
+	border-width:0 0 1px 1px;
+    padding: 0.2rem 0.1rem;
+	font-weight:bold;
+	color:#fffaca;
+}
+table tr th:first-child{
+	border-width:0 0 1px 0;
+}
+table tr th:last-child{
+	border-width:0 0 1px 1px;
+}
+
