@@ -18,9 +18,10 @@ function loadConfig() {
     try{
         var j = JSON.parse(fs.readFileSync(confFilePath));
         j = _.defaults(j,  defaultConfig);
+        if (!j.pnsPath) throw new Error("pnsPath not set!");
         return j;
     }catch(e) {
-        var msg = "Can't Load Configuration: "+e.code;
+        var msg = "Can't Load Configuration: "+e;
         winston.error(msg);
         process.exit(1);
     }

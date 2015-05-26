@@ -23,7 +23,6 @@ module.exports = function(req, res, next) {
     }
     if (ext==".jss") {
         res.render(path.substring(1), {});
-        return;
     }else{
         var phys = __dirname + "/www" + path;
         res.sendFile(phys, staticFileOpts, function(err){

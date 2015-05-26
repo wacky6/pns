@@ -1,4 +1,4 @@
-{% extends "template.swig" %}
+{% extends "_template.swig" %}
 
 
 {% block content %}

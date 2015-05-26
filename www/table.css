@@ -5,14 +5,23 @@ table {
 	box-shadow: 0.8rem 0.8rem 0.4rem #a1a1a1;
 	border:1px solid #ffffff;
     border-collapse: collapse;
-        border-spacing: 0;
+    border-spacing: 0;
     width: 100%;
+    table-layout: fixed;
 }
-table tr:hover td{
-	background-color: #fffee3;
+table tr {
+    transition: background-color 0.2s;
 }
-table tr:nth-child(odd)     { background-color:#f0f5ff; }
-table tr:nth-child(even)    { background-color:#d7e0f5; }
+table tr:hover td{background-color: #d5ffeb;}
+table tr {background-color:#f0f5ff;}
+table tr.public     { background-color:#f0f5ff; }
+table tr.private   { background-color:#d7e0f5; }
+table tr.parent     { background-color:#c7d0e5; }
+table.error tr {background-color:#ffdbdb;}
+table.error tr.parent     { background-color:#c7d0e5; }
+table.error tr:hover  td{background-color:#ffdbdb;}
+table.error tr.parent:hover td{background-color: #d5ffeb;}
+table.error tr th {background-color: #c90000;}
 table td{
 	vertical-align:middle;	
 	border:1px solid #ffffff;
@@ -39,3 +48,80 @@ table tr th:last-child{
 	border-width:0 0 1px 1px;
 }
 
+table tr td a {
+    color: #000;
+}
+table tr td a:visited {
+    color: #000;
+}
+
+td.size {
+    text-align: center;
+}
+td.time {
+    text-align: left;
+}
+td.name {
+    padding-left: 2ch;
+    height: 1rem;
+}
+
+.sort_sel::after {
+    content: " +";
+    color: red;
+}
+.sort_sel.rev::after {
+    content: " -";
+}
+
+/* table cell width */
+#th_date {
+    white-space:nowrap;
+    width: 15rem;
+}
+#th_size {
+    white-space:nowrap;
+    width: 13ch;
+}
+
+/* table cell width for file info */
+.placeholder .key {
+    width: 13ch;
+}
+.placeholder .icon {
+    width: 200pt;
+}
+.placeholder th {
+    border-width: 0;
+}
+
+/* style override for mobile/portriat device */
+@media all and (max-width: 120ch) {
+    table{
+        box-shadow: 0 0 0 1px #000;
+        border: none;
+        font-size: 1.4rem;
+    }
+    table td{
+        border-width: 0 0 1px 0;
+        padding: 0.5rem 0 0.1rem 1rem;
+    }
+    table tr th{
+        border-width:0 0 1px 0;
+    }
+    table tr th:first-child{
+        border-width:0 0 1px 0;
+    }
+    table tr th:last-child{
+        border-width:0 0 1px 0;
+    }
+    table td.size {
+        display: none;
+    }
+    table td.time {
+        display: none;
+    }
+    #th_size, #th_date{
+        display: none;
+    }
+}

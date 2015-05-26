@@ -110,3 +110,13 @@ li a:hover {
     color: #2aa198;
     left: 6pt;
 }
+
+
+/* style override for mobile/portriat device */
+@media all and (max-width: 120ch) {
+    article {
+        width: 100%;
+        padding: 0.5rem 0 0.8rem 0;
+        border-width: 0;
+    }
+}
