@@ -19,6 +19,7 @@ function loadConfig() {
         var j = JSON.parse(fs.readFileSync(confFilePath));
         j = _.defaults(j,  defaultConfig);
         if (!j.pnsPath) throw new Error("pnsPath not set!");
+        j.staticFileOpts = {maxAge: j.cache?1000*60*10:0};
         return j;
     }catch(e) {
         var msg = "Can't Load Configuration: "+e;

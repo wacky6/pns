@@ -13,7 +13,7 @@ var rtPwrBy = require("./routePwrBy");
 var rtDef   = require("./routeDefault");
 var rtPAuth = require("./routePreAuth");
 var rt404   = require("./route404");
-
+var rtIcon  = require("./routeIcon");
 
 app.engine("jss", swig.renderFile);
 app.set("view engine", "jss");
@@ -32,6 +32,7 @@ app.use(rtPwrBy);
 app.use(rtPAuth);
 app.use("/dir",  rtDir);
 app.use("/code", rtCode);
+app.use("/icon", rtIcon);
 app.use("/",     rtDef);
 app.use(rt404);
 

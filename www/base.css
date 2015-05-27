@@ -16,7 +16,7 @@
     background-color: #fff7ec;
 }
 .color2.light {
-    background-color: #fff8f8;;
+    background-color: #fff8f8;
 }
 
 body {
@@ -59,6 +59,11 @@ h1 {
     font-size: 2rem;
     font-weight: normal;
     display: block;
+}
+
+h1>a, h1>a:hover, h1>a:visited {
+    color: inherit;
+    text-decoration: inherit;
 }
 
 h3 {
@@ -108,7 +113,6 @@ li a:visited{
 }
 li a:hover {
     color: #2aa198;
-    left: 6pt;
 }
 
 
@@ -116,7 +120,7 @@ li a:hover {
 @media all and (max-width: 120ch) {
     article {
         width: 100%;
-        padding: 0.5rem 0 0.8rem 0;
+        padding: 0.5rem 1% 0.8rem 1%;
         border-width: 0;
     }
 }

@@ -89,10 +89,24 @@ td.name {
     width: 13ch;
 }
 .placeholder .icon {
-    width: 200pt;
+    width: 160pt;
 }
 .placeholder th {
     border-width: 0;
+}
+
+img {
+    width: 100%;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+ul li{
+    display: inline-block;
+    margin: 0 2ch 0 2ch;
 }
 
 /* style override for mobile/portriat device */

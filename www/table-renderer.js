@@ -29,7 +29,12 @@ function byteSizeToReadable(size) {
 
 function epochToReadable(epoch) {
     if (epoch===undefined) return "";
-    return new Date(epoch).toLocaleString();
+    var d = new Date(epoch);
+    var s = "";
+    s += d.getFullYear()+"/"+d.getMonth()+"/"+d.getDay();
+    s += " ";
+    s += d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
+    return s;
 }
 
 window.trRender = function(ent) {

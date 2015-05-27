@@ -8,6 +8,7 @@ var listing = require("./dirListing");
 var dirFile = require("./dirFile");
 var inspect = require("util").inspect;
 var _       = require("underscore");
+var extname = require("path").extname;
 
 function toJSRepresentation(j) {
     var opt = {
@@ -23,6 +24,10 @@ function processFile(req, res, next) {
     var query  = req.query;
     var param  = null;
     var authed = req.session.authed;
+    var baseQuery = "?";
+    var ext    = extname(path);
+    if (query['public']!==undefined)  baseQuery = "?public&";
+    if (query['private']!==undefined) baseQuery = "?private&";
     dirFile(path, function(pub, priv) {
         if (authed) {
             param = priv || pub || null;
@@ -40,7 +45,9 @@ function processFile(req, res, next) {
         if (!param) {
             res.render("_dir_file404", {});
         }else{
-            if (query["get"]!==undefined)
+            param.baseQuery = baseQuery;
+            param.extname   = ext;
+            if (query["get"]!==undefined || query["view"]!==undefined)
                 res.sendFile(param.phys);
             else if (query["download"]!==undefined)
                 res.download(param.phys);

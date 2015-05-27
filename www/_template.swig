@@ -12,7 +12,7 @@
 </head>
 <body>
 <header>
-  <h1 class="color1">{{title|default("Private Network Storage")}}</h1>
+  <h1 class="color1"><a href="/">{{title|default("Private Network Storage")}}</a></h1>
 </header>
 <div id="content_wrapper" class="color2 light">
   {% block content %}

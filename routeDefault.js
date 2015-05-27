@@ -4,13 +4,7 @@ var extname = require("path").extname;
 var winston = require("winston");
 var conf    = require("./confLoader");
 
-var staticFileOpts = {
-    maxAge: 1000*60*10
-};
-
-if (conf.cache===false) {
-    staticFileOpts.maxAge = 0;
-}
+var staticFileOpts = conf.staticFileOpts;
 
 module.exports = function(req, res, next) {
     var path = req.path; 

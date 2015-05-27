@@ -8,7 +8,6 @@
 {%- block script %}
   {% parent %}
   <script type="text/javascript" src="/underscore-min.js"> </script>
-  <script type="text/javascript" src="/rfas3.js"> </script>
 {%- endblock %}
 
 {% block content %}
@@ -26,8 +25,8 @@
           </tr>
       {%- else %}
       {%- endif %}
-      <tr><td colspan="1" rowspan="6">
-            <img src="{{iconPath}}" alt="fileIcon"></img>
+      <tr><td class="icon" rowspan="9">
+            <img src="/icon/{{ext}}" alt="fileIcon"></img>
           </td>
           <th colspan='2'>File Information</th>
       </tr>
@@ -36,9 +35,13 @@
       <tr id="mtime">         <td>Modified: </td> <td>{{mtime}}</td></tr>
       <tr id="mime" >         <td>MIME:     </td> <td>{{mime}} </td></tr>
       <tr class="{{access}}"> <td>Access:   </td> <td>{{access}}   </td></tr>
-      <tr><td colspan='3'>&nbsp;</td></tr>
-      <tr><th colspan='2'>Actions</th><th></th></tr>
-      <tr><td colspan='3'>
+      <tr><td colspan='2'>&nbsp;</td></tr>
+      <tr><th colspan='2'>Actions</th></tr>
+      <tr><td colspan='2'>
+        <ul>
+          <li id="a_view"><a href="{{baseQuery}}view">View</a></li>
+          <li id="a_download"><a href="{{baseQuery}}download">Download</a></li>
+        </ul>
       </td></tr>
     </tbody>
   </table>

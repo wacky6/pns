@@ -43,7 +43,7 @@ function getDirListing(phys, cbk) {
                         mtime: stat.mtime.getTime(),
                         atime: stat.atime.getTime(),
                         cTime: stat.ctime.getTime(),
-                        size:  stat.size
+                        size:  stat.isDirectory()?0:stat.size
                     };
                 }
                 if (cnt==files.length) {
