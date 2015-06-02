@@ -95,10 +95,6 @@ td.name {
     border-width: 0;
 }
 
-img {
-    width: 100%;
-}
-
 ul {
     padding: 0;
     margin: 0;
@@ -107,6 +103,10 @@ ul {
 ul li{
     display: inline-block;
     margin: 0 2ch 0 2ch;
+}
+
+.icon > img {
+    width: 100%;
 }
 
 /* style override for mobile/portriat device */
@@ -136,6 +136,12 @@ ul li{
         display: none;
     }
     #th_size, #th_date{
+        display: none;
+    }
+    .placeholder .icon {
+        width: 0;
+    }
+    .icon > img {
         display: none;
     }
 }

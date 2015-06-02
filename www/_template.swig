@@ -19,7 +19,9 @@
   {% endblock %}
 </div>
 <footer class="color1">
-  <a class="color1 light" href="https://github.com/wacky6">Aries, (C) 2014-2015, All rights reserved.</a>  
+  <a class="color1 light" href="https://github.com/wacky6">
+  rfas3/pns, Aries, (C) 2014-2015, All rights reserved.
+  </a>
 </footer>
 </body>
 </html>
