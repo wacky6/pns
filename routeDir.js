@@ -26,6 +26,7 @@ function processFile(req, res, next) {
     var authed = req.session.authed;
     var baseQuery = "?";
     var ext    = extname(path);
+    if (ext.indexOf('.')!=-1) ext=ext.substr(1);
     if (query['public']!==undefined)  baseQuery = "?public&";
     if (query['private']!==undefined) baseQuery = "?private&";
     dirFile(path, function(pub, priv) {

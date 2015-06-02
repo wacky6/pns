@@ -14,6 +14,7 @@ var rtDef   = require("./routeDefault");
 var rtPAuth = require("./routePreAuth");
 var rt404   = require("./route404");
 var rtIcon  = require("./routeIcon");
+var rtCaps  = require("./routeCaps");
 
 app.engine("jss", swig.renderFile);
 app.set("view engine", "jss");
@@ -29,6 +30,7 @@ app.disable("x-powered-by");
 app.use(rtPwrBy);
 
 // rfas routers
+app.use(rtCaps);
 app.use(rtPAuth);
 app.use("/dir",  rtDir);
 app.use("/code", rtCode);

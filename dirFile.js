@@ -27,12 +27,17 @@ function byteSizeToReadable(size) {
 function epochToReadable(epoch) {
     if (epoch===undefined) return "";
     var d = new Date(epoch);
-    var s = "";
-    s += d.getFullYear()+"/"+d.getMonth()+"/"+d.getDay();
-    s += " ";
-    s += d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
-    return s;
-
+    var ret = "";
+    ret += d.getFullYear()+"/"+d.getMonth()+"/"+d.getDay();
+    ret += " ";
+    var h = d.getHours();
+    var m = d.getMinutes();
+    var s = d.getSeconds();
+    if (h<10) h="0"+h;
+    if (m<10) m="0"+m;
+    if (s<10) s="0"+s;
+    ret += h+":"+m+":"+s;
+    return ret;
 }
 
 function getStat(phys, callback) {

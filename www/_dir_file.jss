@@ -26,7 +26,7 @@
       {%- else %}
       {%- endif %}
       <tr><td class="icon" rowspan="9">
-            <img src="/icon/{{ext}}" alt="fileIcon"></img>
+            <img src="/icon/{{extname}}" alt="fileIcon"></img>
           </td>
           <th colspan='2'>File Information</th>
       </tr>
