@@ -42,10 +42,11 @@ footer a {
     display: block;
     text-align:center;
     font-size: 0.75rem;
-    work-break: keep-all;
     margin: 0.2rem auto 0 auto;
     padding: 0.25rem 0 0.2rem 0;
     text-decoration: none;
+    height: 1em;
+    overflow: hidden;
 }
 
 h1 {
@@ -119,8 +120,11 @@ li a:hover {
 /* style override for mobile/portriat device */
 @media all and (max-width: 120ch) {
     article {
-        width: 100%;
-        padding: 0.5rem 1% 0.8rem 1%;
+        width: 99%;
+        padding: 0.5rem 0.5% 0.8rem 0.5%;
         border-width: 0;
+    }
+    h1 {
+        padding: 0.5rem 0 0.3rem 4%;
     }
 }

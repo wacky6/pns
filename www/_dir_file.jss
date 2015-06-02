@@ -15,7 +15,9 @@
   <table class="info">
     <tbody>
       <tr class="placeholder"><th class="icon">&nbsp;</th><th class="key">&nbsp;</th><th>&nbsp;</th></tr>
-      <tr class="file parent"><td class="name" colspan='3'><a href="./">./</a></td></tr>
+      <tr class="file parent">
+        <td class="name" colspan='3'><a href="./">./</a></td>
+      </tr>
       {%- if bothExist %}
           <tr class="file public"> <td class="name" colspan='3'>
             <a href="?public">@Public</a></td>

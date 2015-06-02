@@ -36,6 +36,14 @@ app.use("/icon", rtIcon);
 app.use("/",     rtDef);
 app.use(rt404);
 
-
-app.listen(conf.port);
-winston.info("rfas3 listen on: "+conf.port);
+try {
+    if (conf.httpsOpts) {
+        require("https").createServer(httpsOpts, app).listen(conf.port);
+        winston.info("rfas listen on: https / "+conf.port);
+    }else{
+        require("http").createServer(app).listen(conf.port);
+        winston.info("rfas3 listen on: http / "+conf.port);
+    }
+}catch(e) {
+    winston.error("rfas listen fail, port: "+conf.port+", "+e);
+}
