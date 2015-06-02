@@ -19,8 +19,6 @@ module.exports = function(req, res, next) {
         res.render(path.substring(1), {});
     }else{
         var phys = __dirname + "/www" + path;
-        res.sendFile(phys, staticFileOpts, function(err){
-            if(err) next();
-        });
+        res.sendFile(phys, staticFileOpts, function(err){if(err)next()});
     }
 }

@@ -82,7 +82,7 @@ hr {
 }
 
 #content_wrapper {
-    margin-bottom: 1.3rem;
+    margin: 0 0 1.3rem 0;
 }
 
 article {
@@ -115,13 +115,16 @@ li a:visited{
 li a:hover {
     color: #2aa198;
 }
+li.special {
+    margin: 0.5rem auto 0.5rem auto;
+}
 
 
 /* style override for mobile/portriat device */
 @media all and (max-width: 120ch) {
     article {
-        width: 99%;
-        padding: 0.5rem 0.5% 0.8rem 0.5%;
+        width: 94%;
+        padding: 0.5rem 3% 0.8rem 3%;
         border-width: 0;
     }
     h1 {

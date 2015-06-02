@@ -15,6 +15,7 @@ var rtPAuth = require("./routePreAuth");
 var rt404   = require("./route404");
 var rtIcon  = require("./routeIcon");
 var rtCaps  = require("./routeCaps");
+var rtCert  = require("./routeCert");
 
 app.engine("jss", swig.renderFile);
 app.set("view engine", "jss");
@@ -23,9 +24,12 @@ if (conf.cache===false) {
     app.set("view cache", false);
     swig.setDefaults({cache: false});
 }
+
+var swigDefault = { owner: conf.owner };
+if (conf.httpsOpts) swigDefault.showCert=conf.showCert;
 if (conf.compress) app.use(compress);
 app.use(session);
-swig.setDefaults({locals:{owner:conf.owner}});
+swig.setDefaults({locals:swigDefault});
 app.disable("x-powered-by");
 app.use(rtPwrBy);
 
@@ -35,12 +39,13 @@ app.use(rtPAuth);
 app.use("/dir",  rtDir);
 app.use("/code", rtCode);
 app.use("/icon", rtIcon);
+app.use("/cert", rtCert);
 app.use("/",     rtDef);
 app.use(rt404);
 
 try {
     if (conf.httpsOpts) {
-        require("https").createServer(httpsOpts, app).listen(conf.port);
+        require("https").createServer(conf.httpsOpts, app).listen(conf.port);
         winston.info("rfas listen on: https / "+conf.port);
     }else{
         require("http").createServer(app).listen(conf.port);
