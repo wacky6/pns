@@ -71,6 +71,7 @@ function getDirListing(phys, cbk) {
 function overlayDirListing(path, overlay, callback) {
     if (path[path.length-1]!='/') path+='/';
     path = normalize(path);
+    winston.info("lsDir : "+path);
     var pubLsDir  = join(pubDir,  path);
     var privLsDir = join(privDir, path);
     var ls  = {};

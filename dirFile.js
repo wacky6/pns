@@ -6,6 +6,7 @@ var normalize = require("path").normalize;
 var join      = require("path").join;
 var basename  = require("path").basename;
 var mime      = require("mime");
+var winston   = require("winston");
 
 var pubDir;
 var privDir;
@@ -64,6 +65,7 @@ function getStat(phys, callback) {
 function getDirFile(path, callback) {
     var sPub, sPriv;
     path = normalize(path);
+    winston.info("lsFile: "+path);
     var pubFile  = join(pubDir,  path);
     var privFile = join(privDir, path);
     function processFiles() {

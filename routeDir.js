@@ -59,7 +59,7 @@ function processFile(req, res, next) {
 }
 
 function processDir(req, res, next) {
-    var path    = req.path;
+    var path    = decodeURI(req.path);
     var lsJson  = [];
     var overlay = req.session.authed;
     var param   = {
@@ -87,7 +87,6 @@ function processDir(req, res, next) {
 module.exports = function(req, res, next) {
     var path   = req.path;
     var param  = {};
-    console.log("dir: "+path);
     if (path[path.length-1]=='/') 
         processDir(req, res, next);
     else
