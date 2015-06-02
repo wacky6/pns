@@ -6,8 +6,8 @@ var normalize = require("path").normalize;
 var staticFileOpts = conf.staticFileOpts;
 var certPath;
 
-if (conf.httpsOpts) 
-    certPath = normalize(conf.httpsOpts.certPath);
+if (conf.showCert)
+    certPath = normalize(conf.showCert);
 
 module.exports = function(req,res,next) {
     if (conf.showCert && req.path=='/') 

@@ -3,8 +3,9 @@
 var winston = require("winston");
 var fs      = require("fs");
 var _       = require("underscore");
+var resolve = require("path").resolve;
 
-var confFilePath = "./conf.conf";
+var confFilePath = resolve(__dirname+"/", "./conf.conf");
 
 /* configuration: {
     authAge:     num of millisecond that a authToken is considered valid
@@ -18,6 +19,8 @@ var confFilePath = "./conf.conf";
                  valid if certificate, privateKey are set
     certOnly:    only accept clients with valid certificates
     showCert:    show certificate download on index,
+                 path to CA certificate that signs [certificate]
+                 or set to false to disable cert download
                  valid if certificate, privateKey are set
 }
 */
@@ -27,7 +30,8 @@ var defaultConfig = {
     owner:    "Someone",
     cache:    true,
     port:     80,
-    compress: true
+    compress: true,
+    showCert: false
 };
 
 function loadConfig() {
@@ -42,16 +46,15 @@ function loadConfig() {
         // deduce HTTP/HTTPS Server option
         if (j.certificate && j.privateKey) {
             var httpsOpts = {};
-            httpsOpts.cert = fs.readFileSync(j.certificate);
-            httpsOpts.key  = fs.readFileSync(j.privateKey);
-            httpsOpts.certPath = __dirname + "/" + j.certificate;
+            httpsOpts.cert = fs.readFileSync(resolve(__dirname+"/", j.certificate));
+            httpsOpts.key  = fs.readFileSync(resolve(__dirname+"/", j.privateKey));
             if (j.ca) {
                 httpsOpts.ca = fs.readFileSync(j.ca);
                 httpsOpts.rejectUnauthorized = j.certOnly?true:false;
             }
             j.httpsOpts = httpsOpts;
+            j.showCert = resolve(__dirname+"/", j.showCert);
             if (!portSet) j.port=443;
-            if (j.showCert===undefined) j.showCert=true;
         }
         // warn if user did not set https correctly
         if (!j.httpsOpts && (j.certificate || j.privateKey || j.ca || j.showCert)) {
