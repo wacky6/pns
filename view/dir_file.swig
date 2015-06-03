@@ -5,11 +5,6 @@
   <link rel="stylesheet" href="/table.css"> 
 {%- endblock %}
 
-{%- block script %}
-  {% parent %}
-  <script type="text/javascript" src="/underscore-min.js"> </script>
-{%- endblock %}
-
 {% block content %}
 <article>
   <table class="info">

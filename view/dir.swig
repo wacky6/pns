@@ -7,7 +7,6 @@
 
 {%- block script -%}
   {% parent %}
-  <script type="text/javascript" src="/underscore-min.js"> </script>
   <script type="text/javascript" src="/rfas3.js"> </script>
 {%- endblock -%}
 
