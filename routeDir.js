@@ -40,9 +40,9 @@ function processFile(req, res, next) {
             param.baseQuery = baseQuery;
             param.extname   = ext;
             if (query["get"]!==undefined || query["view"]!==undefined)
-                res.sendFile(param.phys);
+                res.sendFile(param.phys, function(err){if(err) next()});
             else if (query["download"]!==undefined)
-                res.download(param.phys);
+                res.download(param.phys, function(err){if(err) next()});
             else   
                 res.render("dir_file", param);
         }

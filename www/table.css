@@ -58,6 +58,15 @@ table tr td a:visited {
 td.size {
     text-align: center;
 }
+td.qact img {
+	height: 1rem;
+	width:  1rem;
+	vertical-align: middle;
+}
+td.qact li {
+	margin: 0;
+	padding: 0;
+}
 td.time {
     text-align: center;
 }
@@ -83,7 +92,10 @@ td, th {
     width: 23ch;
 }
 #th_size {
-    width: 14ch;
+    width: 12ch;
+}
+#th_qact {
+	width: 3.2em;
 }
 
 /* table cell width for file info */
@@ -146,4 +158,11 @@ ul li{
     .icon > img {
         display: none;
     }
+	td.qact img {
+		width: 1.4rem;
+		height: 1.4rem;
+	}
+	td.qact {
+		padding: 0;
+	}
 }

@@ -29,7 +29,7 @@
       </tr>
       <tr id="name" >         <td>Name:     </td> <td>{{name}} </td></tr>
       <tr id="size" >         <td>Size:     </td> <td>{{size|fsize}} </td></tr>
-      <tr id="mtime">         <td>Modified: </td> <td>{{mtime|date("Y-m-d H:i:s")}}</td></tr>
+      <tr id="mtime">         <td>Modified: </td> <td>{{mtime|date("Y/m/d H:i:s")}}</td></tr>
       <tr id="mime" >         <td>MIME:     </td> <td>{{mime}} </td></tr>
       <tr class="{{access}}"> <td>Access:   </td> <td>{{access}}   </td></tr>
       <tr><td colspan='2'>&nbsp;</td></tr>
