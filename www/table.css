@@ -77,7 +77,8 @@ td.name {
 }
 td.name a {
 	display: block;
-	overflow:scroll;
+	overflow:hidden;
+	text-overflow: ellipsis;
 }
 
 .sort_sel::after {
@@ -161,6 +162,9 @@ ul li{
     table td.time {
         display: none;
     }
+	table td.qact {
+		padding: 0;
+	}
     #th_size, #th_date{
         display: none;
     }
@@ -170,7 +174,8 @@ ul li{
     .icon > img {
         display: none;
     }
-	td.qact {
-		padding: 0;
+	td.name a {
+		overflow: scroll;
+		text-overflow: initial;
 	}
 }
