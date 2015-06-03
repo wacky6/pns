@@ -1,4 +1,5 @@
 conf.conf
+*.swp
 *.cer
 *.key
 .DS_Store

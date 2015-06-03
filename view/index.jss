@@ -1,4 +1,4 @@
-{% extends '_template.swig' %}
+{% extends 'template.swig' %}
 
 {%- block css %}
 {% parent %}

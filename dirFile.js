@@ -15,32 +15,6 @@ if (base[base.length-1]!='/') base+='/';
 pubDir  = base+"public/";
 privDir = base+"private/";
 
-
-function byteSizeToReadable(size) {
-    var unit = ["Bytes", "KB", "MB", "GB", "TB", "PB"];
-    var step = 1024;
-    var cnt  = 0;
-    if (size===undefined) return "";
-    for (cnt=0; size>=step; ++cnt, size/=step);
-    return Math.round(size*10)/10 + " " + unit[cnt];
-}
-
-function epochToReadable(epoch) {
-    if (epoch===undefined) return "";
-    var d = new Date(epoch);
-    var ret = "";
-    ret += d.getFullYear()+"/"+d.getMonth()+"/"+d.getDay();
-    ret += " ";
-    var h = d.getHours();
-    var m = d.getMinutes();
-    var s = d.getSeconds();
-    if (h<10) h="0"+h;
-    if (m<10) m="0"+m;
-    if (s<10) s="0"+s;
-    ret += h+":"+m+":"+s;
-    return ret;
-}
-
 function getStat(phys, callback) {
     fs.stat(phys, function(err, stat){
         if (err && err.code=='EAGAIN') {
@@ -72,8 +46,8 @@ function getDirFile(path, callback) {
         function sTransform(s) {
             return !s||!s.isFile()?null:{
                 name:  basename(path),
-                size:  byteSizeToReadable(s.size),
-                mtime: epochToReadable(s.mtime.getTime()),
+                size:  s.size,
+                mtime: s.mtime.getTime(),
                 mime:  mime.lookup(path),
                 phys:  s.phys
             };

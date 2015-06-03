@@ -10,26 +10,28 @@ var conf      = require("./confLoader");
 var rtDir   = require("./routeDir");
 var rtCode  = require("./routeCode");
 var rtPwrBy = require("./routePwrBy");
-var rtDef   = require("./routeDefault");
 var rtPAuth = require("./routePreAuth");
 var rt404   = require("./route404");
 var rtIcon  = require("./routeIcon");
 var rtCaps  = require("./routeCaps");
 var rtCert  = require("./routeCert");
+var prettyFileSize = require("./pretty-file-size");
 
 app.engine("jss", swig.renderFile);
 app.set("view engine", "jss");
-app.set("views", __dirname + "/www");
+app.set("views", __dirname + "/view");
 if (conf.cache===false) {
     app.set("view cache", false);
     swig.setDefaults({cache: false});
 }
 
-var swigDefault = { owner: conf.owner };
+var swigDefault = { owner: conf.owner};
 if (conf.httpsOpts) swigDefault.showCert=conf.showCert;
 if (conf.compress) app.use(compress);
 app.use(session);
 swig.setDefaults({locals:swigDefault});
+swig.setDefaultTZOffset(new Date().getTimezoneOffset());
+swig.setFilter("fsize", prettyFileSize);
 app.disable("x-powered-by");
 app.use(rtPwrBy);
 
@@ -40,7 +42,8 @@ app.use("/dir",  rtDir);
 app.use("/code", rtCode);
 app.use("/icon", rtIcon);
 app.use("/cert", rtCert);
-app.use("/",     rtDef);
+app.get("/",     function(req,res){res.render("index")});
+app.use(express.static(__dirname+"/www",{maxAge: conf.cache?24*60*60*1000:0}));
 app.use(rt404);
 
 try {

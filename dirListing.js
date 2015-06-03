@@ -38,12 +38,14 @@ function getDirListing(phys, cbk) {
                 }
                 cnt++;
                 if (!err) {
-                    var fn = stat.isDirectory()?f+'/':f;
+                    var isDir = stat.isDirectory();
+                    var fn = isDir?f+'/':f;
                     ret[fn] = {
                         mtime: stat.mtime.getTime(),
                         atime: stat.atime.getTime(),
                         cTime: stat.ctime.getTime(),
-                        size:  stat.isDirectory()?0:stat.size
+                        size:  isDir?0:stat.size,
+                        type:  isDir?"dir":"file"
                     };
                 }
                 if (cnt==files.length) {

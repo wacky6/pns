@@ -10,15 +10,6 @@ var inspect = require("util").inspect;
 var _       = require("underscore");
 var extname = require("path").extname;
 
-function toJSRepresentation(j) {
-    var opt = {
-        showHidden: false,
-        depth:  null,
-        colors: false
-    };
-    return inspect(j, opt);
-}
-
 function processFile(req, res, next) {
     var path   = decodeURI(req.path);
     var query  = req.query;
@@ -44,7 +35,7 @@ function processFile(req, res, next) {
             }
         }
         if (!param) {
-            res.render("_dir_file404", {});
+            res.render("dir_file404", {});
         }else{
             param.baseQuery = baseQuery;
             param.extname   = ext;
@@ -53,33 +44,33 @@ function processFile(req, res, next) {
             else if (query["download"]!==undefined)
                 res.download(param.phys);
             else   
-                res.render("_dir_file", param);
+                res.render("dir_file", param);
         }
     });
 }
 
 function processDir(req, res, next) {
     var path    = decodeURI(req.path);
-    var lsJson  = [];
     var overlay = req.session.authed;
     var param   = {
-        cd:    toJSRepresentation(path)
+        isRoot: path=='/'
     };
     listing(path, overlay, function(err, files) {
         if (err) {
-            res.render("_dir404", param);
+            res.render("dir404", param);
         }else{
+            param.ls = [];
             _.each(files, function(v,k) {
                 var j = {
                     name:   k,
                     size:   v.size,
                     mtime:  v.mtime,
-                    access: v.overlay?"private":"public"
+                    access: v.overlay?"private":"public",
+                    type:   v.type
                 };
-                lsJson.push(j);
-                param.lsJson = toJSRepresentation(lsJson);
+                param.ls.push(j);
             });
-            res.render("_dir", param);
+            res.render("dir", param);
         }
     });
 }
