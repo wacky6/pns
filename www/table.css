@@ -72,7 +72,12 @@ td.time {
 }
 td.name {
     padding-left: 2ch;
+	padding-right: 1ch;
     height: 1rem;
+}
+td.name a {
+	display: block;
+	overflow:scroll;
 }
 
 .sort_sel::after {
@@ -128,8 +133,12 @@ ul li{
     table{
         box-shadow: 0 0 0 1px #000;
         border: none;
-        font-size: 1.4rem;
+        font-size: 1.6rem;
     }
+	td.qact img {
+		width: 1.6rem;
+		height: 1.6rem;
+	}
     table td{
         border-width: 0 0 1px 0;
         padding: 0.5rem 0 0.1rem 1rem;
@@ -143,6 +152,9 @@ ul li{
     table tr th:last-child{
         border-width:0 0 1px 0;
     }
+	table td.name {
+		padding-left: 1ch;
+	}
     table td.size {
         display: none;
     }
@@ -158,10 +170,6 @@ ul li{
     .icon > img {
         display: none;
     }
-	td.qact img {
-		width: 1.4rem;
-		height: 1.4rem;
-	}
 	td.qact {
 		padding: 0;
 	}

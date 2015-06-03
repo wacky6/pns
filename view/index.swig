@@ -2,7 +2,7 @@
 
 {%- block css %}
 {% parent %}
-<link rel="stylesheet" type="text/css" href="/index.css">
+  <link rel="stylesheet" type="text/css" href="/index.css">
 {%- endblock %}
 
 {% block content %}
