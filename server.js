@@ -17,8 +17,8 @@ var rtCaps  = require("./routeCaps");
 var rtCert  = require("./routeCert");
 var prettyFileSize = require("./pretty-file-size");
 
-app.engine("jss", swig.renderFile);
-app.set("view engine", "jss");
+app.engine("swig", swig.renderFile);
+app.set("view engine", "swig");
 app.set("views", __dirname + "/view");
 if (conf.cache===false) {
     app.set("view cache", false);
