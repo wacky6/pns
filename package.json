@@ -5,7 +5,6 @@
   "main": "server.js",
   "dependencies": {
     "compression": "^1.4.4",
-    "connect-redis": "^2.3.0",
     "express": "^4.12.4",
     "express-session": "^1.11.2",
     "ip": "^0.3.3",
@@ -22,8 +21,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@wacky6.vicp.cc:2233/git/rfas3"
+    "url": "https://github.com/wacky6/pns"
   },
   "author": "wacky6",
-  "license": "Private"
+  "license": "MIT"
 }
