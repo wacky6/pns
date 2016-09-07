@@ -7,7 +7,7 @@
 
 {%- block script -%}
   {% parent %}
-  <script type="text/javascript" src="/rfas3.js"> </script>
+  <script src="/rfas3.js"></script>
 {%- endblock -%}
 
 {%- block content -%}
