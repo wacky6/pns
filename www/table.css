@@ -174,8 +174,8 @@ ul li{
     .icon > img {
         display: none;
     }
-	td.name a {
-		overflow: scroll;
-		text-overflow: initial;
-	}
+}
+
+tr#name td {
+	word-wrap:  break-word;
 }
