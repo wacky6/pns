@@ -9,7 +9,10 @@ var whitelist = [
     "Chrome",
     "Safari",
     "Firefox",
-    "Chromium"
+    "Chromium",
+    "curl",
+    "Wget",
+    "aria2"
 ];
 
 var whitelistExtension = [
